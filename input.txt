@@ -1,0 +1,1 @@
+Im1;Nazw1;Poz1;4;Im2;Nazw2;Poz2;2;Im3;Nazw3;Poz3;3;Im4;Nazw4;Poz4;1;
