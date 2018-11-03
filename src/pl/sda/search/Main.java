@@ -10,6 +10,16 @@ public class Main {
 
         int result = searchAlgorithm.search(17, array);
 
-        System.out.println(result);
+        System.out.println("Linear " + result);
+
+
+
+        Integer[] sortedArr = new Integer[]{1, 5, 8, 12, 15};
+
+        SearchAlgorithm binary = new BinarySearchIter();
+
+        int binaryResult = binary.search(9, sortedArr);
+
+        System.out.println("Binary " + binaryResult);
     }
 }
