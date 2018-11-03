@@ -2,8 +2,8 @@ package pl.sda.search;
 
 import java.util.List;
 
-public interface SearchAlgorithm {
-    Integer search(Integer value, List<Integer> input);
+public interface SearchAlgorithm<T extends Comparable<T> > {
+    Integer search(T value, List<T> input);
 
-    Integer search(Integer value, Integer[] input);
+    Integer search(T value, T[] input);
 }
