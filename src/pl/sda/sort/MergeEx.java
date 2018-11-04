@@ -5,8 +5,12 @@ import java.util.Arrays;
 public class MergeEx {
 
     public static void main(String[] args) {
-        int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8};
+        int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 150};
         int[] array2 = new int[]{9, 10, 11, 12, 13, 14, 15, 16, 17};
+        int[] array3 = new int[]{9, 10, 11};
+
+        int[] array4 = new int[]{1, 4, 8, 9, 19};
+        int[] array5 = new int[]{2, 3, 7, 10, 16, 17, 18};
 
         System.out.println("Ex1 V1:");
         divArray(array);
@@ -19,6 +23,14 @@ public class MergeEx {
         System.out.println(Arrays.toString(concatSameSizeArrayV2(array, array2)));
         System.out.println("Ex2 V3:");
         System.out.println(Arrays.toString(concatSameSizeArrayV3(array, array2)));
+
+        System.out.println("Ex3 V1:");
+        System.out.println(Arrays.toString(concatDiffSizeArrayV1(array, array3)));
+        System.out.println("Ex3 V2:");
+        System.out.println(Arrays.toString(concatDiffSizeArrayV2(array, array3)));
+
+        System.out.println("Ex4:");
+        System.out.println(Arrays.toString(concatSortSizeArray(array4, array5)));
     }
 
 
@@ -107,4 +119,100 @@ public class MergeEx {
         return result;
     }
 
+
+    public static int[] concatDiffSizeArrayV1(int[] left, int[] right) {
+        int[] result = new int[left.length + right.length];
+
+        int leftSize = left.length;
+        int rightSize = right.length;
+
+        int currentLeftIndex = 0;
+        int currentRightIndex = 0;
+
+        for (int i = 0; i < result.length; i += 2) {
+            if (currentLeftIndex < leftSize && currentRightIndex < rightSize) {
+                result[i] = left[currentLeftIndex];
+                result[i + 1] = right[currentRightIndex];
+                currentLeftIndex++;
+                currentRightIndex++;
+            } else if (currentLeftIndex >= leftSize) {
+                result[i] = right[currentRightIndex];
+                currentRightIndex++;
+                if (currentRightIndex < rightSize) {
+                    result[i + 1] = right[currentRightIndex];
+                    currentRightIndex++;
+                }
+            } else {
+                result[i] = left[currentLeftIndex];
+                currentLeftIndex++;
+                if (currentLeftIndex < leftSize) {
+                    result[i + 1] = left[currentLeftIndex];
+                    currentLeftIndex++;
+                }
+            }
+        }
+
+        return result;
+    }
+
+
+    public static int[] concatDiffSizeArrayV2(int[] left, int[] right) {
+        int[] result = new int[left.length + right.length];
+
+        int leftSize = left.length;
+        int rightSize = right.length;
+
+        int currentLeftIndex = 0;
+        int currentRightIndex = 0;
+
+        for (int i = 0; i < result.length; i++) {
+            if (currentLeftIndex < leftSize && currentRightIndex < rightSize) {
+                result[i] = left[currentLeftIndex];
+                i++;
+                result[i] = right[currentRightIndex];
+
+                currentLeftIndex++;
+                currentRightIndex++;
+            } else if (currentLeftIndex < leftSize) {
+                result[i] = left[currentLeftIndex];
+                currentLeftIndex++;
+            } else {
+                result[i] = right[currentRightIndex];
+                currentRightIndex++;
+            }
+        }
+
+        return result;
+    }
+
+
+    public static int[] concatSortSizeArray(int[] left, int[] right) {
+        int[] result = new int[left.length + right.length];
+
+        int leftSize = left.length;
+        int rightSize = right.length;
+
+        int currentLeftIndex = 0;
+        int currentRightIndex = 0;
+
+        for (int i = 0; i < result.length; i++) {
+            if (currentLeftIndex < leftSize && currentRightIndex < rightSize) {
+                if (left[currentLeftIndex] <= right[currentRightIndex]) {
+                    result[i] = left[currentLeftIndex];
+                    currentLeftIndex++;
+                } else {
+                    result[i] = right[currentRightIndex];
+                    currentRightIndex++;
+                }
+            } else if (currentLeftIndex < leftSize) {
+                result[i] = left[currentLeftIndex];
+                currentLeftIndex++;
+            } else {
+                result[i] = right[currentRightIndex];
+                currentRightIndex++;
+            }
+        }
+
+        return result;
+    }
 }
