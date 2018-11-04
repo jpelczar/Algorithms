@@ -22,6 +22,10 @@ public class BubbleEx {
         System.out.println("******************");
 
         bubbleEx.ex4(array);
+
+        System.out.println("******************");
+
+        bubbleEx.ex5(array);
     }
 
 
@@ -56,6 +60,25 @@ public class BubbleEx {
                 swap(array, a - 1, a);
             }
             ex2(array);
+        }
+    }
+
+    /**
+     * 1,2,3
+     * 1,2
+     * 1
+     */
+    private void ex5(int[] array) {
+        for (int a = 0; a < array.length; a++) {
+            System.out.print("[");
+            for (int i = 0; i < array.length - a; i++) {
+                System.out.print(i + ":" + array[i]);
+                if (i != array.length - 1 - a) {
+                    System.out.print(",");
+                }
+            }
+            System.out.print("]");
+            System.out.println();
         }
     }
 }
