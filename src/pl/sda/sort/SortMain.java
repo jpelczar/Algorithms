@@ -14,6 +14,12 @@ public class SortMain {
 
         System.out.println("BS: " + Arrays.toString(bubbleSrotResult));
 
+
+        SortingAlgorithm selection = new SelectionSort();
+
+        Integer[] selectionResult = selection.sort(array);
+
+        System.out.println("Sel: " + Arrays.toString(selectionResult));
     }
 
 }

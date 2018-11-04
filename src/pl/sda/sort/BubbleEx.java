@@ -29,7 +29,7 @@ public class BubbleEx {
     }
 
 
-    private void swap(int[] array, int a, int b) {
+    public void swap(int[] array, int a, int b) {
         int tmp = array[a];
         array[a] = array[b];
         array[b] = tmp;

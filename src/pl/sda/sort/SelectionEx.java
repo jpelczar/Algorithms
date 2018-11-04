@@ -31,7 +31,7 @@ public class SelectionEx {
         return minIndex;
     }
 
-    private int minFromAToB(int[] array, int a, int b) {
+    public int minFromAToB(int[] array, int a, int b) {
         if (a <= b && a < array.length && b < array.length && a >=0 && b >= 0) {
 
             int minIndex = a;
