@@ -8,17 +8,22 @@ import java.util.Random;
 public class QuickEx {
 
     public static void main(String[] args) {
-        int[] tab = new int[]{2, 9, 8, 5, 4, 7, 6};
+        int[] tab = new int[]{2, 9, 8, 5, 5, 5, 5, 5, 4, 7, 6};
 
-        System.out.println("Middle: " + getMiddle(tab));
-        System.out.println("Random: " + getRandom(tab));
-        System.out.println("Lower: " + Arrays.toString(lowerArray(tab)));
-        System.out.println("Lower stream: " +
-                Arrays.toString(lowerArrayStream(tab)));
-        System.out.println("Greater: " + Arrays.toString(greaterArray(tab)));
-        System.out.println("Greater stream: " +
-                Arrays.toString(greaterArrayStream(tab)));
-        System.out.println("Concat: " + Arrays.toString(concatArrays(tab)));
+//        System.out.println("Middle: " + getMiddle(tab));
+//        System.out.println("Random: " + getRandom(tab));
+//        System.out.println("Lower: " + Arrays.toString(lowerArray(tab)));
+//        System.out.println("Lower stream: " +
+//                Arrays.toString(lowerArrayStream(tab)));
+//        System.out.println("Greater: " + Arrays.toString(greaterArray(tab)));
+//        System.out.println("Greater stream: " +
+//                Arrays.toString(greaterArrayStream(tab)));
+//        System.out.println("Concat: " + Arrays.toString(concatArrays(tab)));
+
+
+        lowerGreaterTab(tab);
+        System.out.println("Lower Greater: " +
+                Arrays.toString(tab));
     }
 
     private static int getMiddle(int[] tab) {
@@ -96,5 +101,32 @@ public class QuickEx {
         }
 
         return result;
+    }
+
+
+    private static void lowerGreaterTab(int[] tab) {
+
+        int midVal = getMiddle(tab); //pivot
+        int midIndex = tab.length / 2; //pivot index
+
+        swap(tab, midIndex, tab.length - 1); //ustawiamy pivot na końcu, a element ostatni na pivotIndex
+
+        int j = 0; //j to pierwszy większy element od pivota
+
+        //pętla od początku do przedostatniego elementu
+        for (int i = 0; i < tab.length - 1; i++) {
+            if (tab[i] <= midVal) { //sprawdzamy czy wrtośc spod i jest mniejsza lub równa pivot
+                swap(tab, i, j); //jeśli tak to zamiana elemntów w tablicy i <-> j
+                j++; //pierwszy większy element od pivot jest na pozycji j++ po zamianie wartości
+            }
+        }
+
+        swap(tab, j, tab.length - 1); //zamiana pivota z pierwszym większym od niego elementem
+    }
+
+    private static void swap(int[] tab, int a, int b) {
+        int temp = tab[a];
+        tab[a] = tab[b];
+        tab[b] = temp;
     }
 }
