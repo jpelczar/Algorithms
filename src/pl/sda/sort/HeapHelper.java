@@ -26,6 +26,10 @@ węzeł k jest liściem, jeśli 2k + 2 > n
         return -1;
     }
 
+    public static boolean isRoot(int index) {
+        return index == 0;
+    }
+
     public static boolean isLeftSonExist(int index, int[] tree) {
         return getLeftSonIndex(index) < tree.length;
     }
