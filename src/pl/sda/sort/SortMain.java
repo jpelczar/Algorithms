@@ -21,11 +21,15 @@ public class SortMain {
 //
 //        System.out.println("Sel: " + Arrays.toString(selectionResult));
 
-        SortingAlgorithm quickSort = new QuickSort();
+//        SortingAlgorithm quickSort = new QuickSort();
+//
+//        Integer[] quickSortResult = quickSort.sort(array);
+//
+//        System.out.println("Quick: " + Arrays.toString(quickSortResult));
 
-        Integer[] quickSortResult = quickSort.sort(array);
-
-        System.out.println("Quick: " + Arrays.toString(quickSortResult));
+        SortingAlgorithm heapSort = new HeapSort();
+        Integer[] heapSortResult = heapSort.sort(array);
+        System.out.println("Heap: " + Arrays.toString(heapSortResult));
     }
 
 }

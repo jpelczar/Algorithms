@@ -1,5 +1,7 @@
 package pl.sda.sort;
 
+import java.util.Arrays;
+
 import static pl.sda.sort.HeapHelper.*;
 
 public class HeapEx {
@@ -16,6 +18,12 @@ public class HeapEx {
 
         compareWithParent(5, tree);
         swapParentChild(tree, 7, Child.RIGHT);
+
+        Integer[] treeForBuildHeap = new Integer[]{5, 9, 12,12,12, 4, 13, 81, 65};
+        BuildHeap.execute(treeForBuildHeap);
+        System.out.println("Heap: " + Arrays.toString(treeForBuildHeap));
+        ShiftHeap.execute(treeForBuildHeap);
+        System.out.println("Sorted heap: " + Arrays.toString(treeForBuildHeap));
     }
 
     /*
