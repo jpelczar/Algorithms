@@ -6,20 +6,26 @@ public class SortMain {
 
     public static void main(String[] args) {
 
-        Integer[] array = new Integer[]{3, 8, 1, 2, 9, 15, 11};
+        Integer[] array = new Integer[]{2, 9, 8, 5, 5, 5, 5, 5, 5, 4, 7, 6};
 
-        SortingAlgorithm bubbleSort = new BubbleSort();
+//        SortingAlgorithm bubbleSort = new BubbleSort();
+//
+//        Integer[] bubbleSrotResult = bubbleSort.sort(array);
+//
+//        System.out.println("BS: " + Arrays.toString(bubbleSrotResult));
+//
+//
+//        SortingAlgorithm selection = new SelectionSort();
+//
+//        Integer[] selectionResult = selection.sort(array);
+//
+//        System.out.println("Sel: " + Arrays.toString(selectionResult));
 
-        Integer[] bubbleSrotResult = bubbleSort.sort(array);
+        SortingAlgorithm quickSort = new QuickSort();
 
-        System.out.println("BS: " + Arrays.toString(bubbleSrotResult));
+        Integer[] quickSortResult = quickSort.sort(array);
 
-
-        SortingAlgorithm selection = new SelectionSort();
-
-        Integer[] selectionResult = selection.sort(array);
-
-        System.out.println("Sel: " + Arrays.toString(selectionResult));
+        System.out.println("Quick: " + Arrays.toString(quickSortResult));
     }
 
 }

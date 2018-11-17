@@ -8,7 +8,7 @@ import java.util.Random;
 public class QuickEx {
 
     public static void main(String[] args) {
-        int[] tab = new int[]{2, 9, 8, 5, 5, 5, 5, 5, 4, 7, 6};
+        int[] tab = new int[]{2, 9, 8, 5, 4, 7, 6};
 
 //        System.out.println("Middle: " + getMiddle(tab));
 //        System.out.println("Random: " + getRandom(tab));
