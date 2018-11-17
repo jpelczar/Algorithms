@@ -18,6 +18,7 @@ public class QuickEx {
         System.out.println("Greater: " + Arrays.toString(greaterArray(tab)));
         System.out.println("Greater stream: " +
                 Arrays.toString(greaterArrayStream(tab)));
+        System.out.println("Concat: " + Arrays.toString(concatArrays(tab)));
     }
 
     private static int getMiddle(int[] tab) {
@@ -75,5 +76,25 @@ public class QuickEx {
         return Arrays.stream(tab)
                 .filter(tabVal -> tabVal > midVal)
                 .toArray();
+    }
+
+    private static int[] concatArrays(int[] tab) {
+        int midVal = getMiddle(tab);
+        int[] lower = lowerArrayStream(tab);
+        int[] greater = greaterArrayStream(tab);
+
+        int[] result = new int[tab.length];
+
+        for (int i = 0; i < lower.length; i++) {
+            result[i] = lower[i];
+        }
+
+        result[lower.length] = midVal;
+
+        for (int i = lower.length + 1; i < result.length; i++) {
+            result[i] = greater[i - (lower.length + 1)];
+        }
+
+        return result;
     }
 }
